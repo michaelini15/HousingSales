@@ -63,7 +63,7 @@ WHERE a.PropertyAddress IS NULL;
 SELECT PropertyAddress
 FROM Nashville_housing_data;
 
---Split the address and city of PropertyAddress column
+--Split the address and city of PropertyAddress column (replace comma seperators with periods because PARSENAME only works with periods)
 
 SELECT 
     PARSENAME(REPLACE(PropertyAddress, ',', '.'), 2) AS Address,
