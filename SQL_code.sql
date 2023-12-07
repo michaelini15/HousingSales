@@ -25,7 +25,7 @@ SELECT *
 FROM Nashville_housing_data
 WHERE PropertyAddress IS NULL;
 
---Check how ParcelID connects to PropertyAddress
+--Check how ParcelID connects to PropertyAddress (ParcelID is always the same for each property, even when sold more than once)
 
 SELECT *
 FROM Nashville_housing_data
