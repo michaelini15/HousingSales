@@ -161,18 +161,18 @@ FROM Nashville_housing_data;
 
 --Find and delete rows that are duplicate in ParcelID, PropertyAddress, SalePrice, SaleDate, and LegalReference
 
-WITH RowNumCTE AS(
+WITH RowNumCTE AS
+(
 SELECT *,
-	ROW_NUMBER() OVER(
-	    PARTITION BY 
-            ParcelID,
-			PropertyAddress,
-			SalePrice,
-			SaleDate,
-			LegalReference
-		ORDER BY
-			UniqueID
-			) row_num
+ROW_NUMBER() OVER(
+	PARTITION BY 
+        	ParcelID,
+		PropertyAddress,
+		SalePrice,
+		SaleDate,
+		LegalReference
+	ORDER BY
+		UniqueID) row_num
 FROM PortfolioProject.dbo.NashvilleHousing
 )
 DELETE
